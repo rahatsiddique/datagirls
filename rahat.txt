@@ -1,1 +1,3 @@
 https://github.com/chartjs/Chart.js/blob/master/samples/charts/line/basic.html
+
+http://blog.ruanbekker.com/blog/2017/12/14/graphing-pretty-charts-with-python-flask-and-chartjs/
