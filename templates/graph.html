@@ -5,17 +5,18 @@
   <title>{{ chart }}</title>
   <script src='https://cdnjs.cloudflare.com/ajax/libs/Chart.js/1.0.2/Chart.min.js'></script>
 <title>Charts Sanctuary</title>
-<link rel='shortcut icon' href="img/logo1.png">
+<link rel='shortcut icon' href="static/img/lg1.png">
 
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
 <meta http-equiv="content-type" content="text/html; charset=utf-8">
 <meta content="text/html; charset=utf-8" http-equiv="content-type">
 <meta content="width=device-width, initial-scale=1" name="viewport"><!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags --><!-- Bootstrap -->
 
-<link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" rel="stylesheet">
+<link href="static/vendor/bootstrap/css/bootstrap.min.css"rel="stylesheet">
 <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet">
 
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<script src="static/vendor/bootstrap/js/bootstrap.min.js"></script>
+<script src='https://cdnjs.cloudflare.com/ajax/libs/Chart.js/1.0.2/Chart.min.js'></script>
 </head>
 
 <body class="campaing">
@@ -24,61 +25,27 @@
     <nav class="navbar navbar-inverse navbar-fixed-top">
       <div class="container-fluid">
         <div class="navbar-header">
-          <a class="navbar-brand" href="index.html">Chrt.</a>
+          <a class="navbar-brand" href="{{ url_for('index') }}">Chrt.</a>
         </div>
       <div id="donate" class="pull-right"><button class="btn btn-danger navbar-btn">Join us</button></div>
       </div>
     </nav>
 </header>
 <br> <br> <br> <br> <br>
-  <h1> Gold </h1>
+  <h1> History of top commodities in graphs</h1>
 
-  <canvas id="chart" width="600" height="400"> </canvas>
+  <center>
+    <h1>{{ title }}</h1>
 
-<!-- Footer -->
-<footer class="footer text-center">
-    <p class="text-muted small mb-0">Copyright &copy; DataGirls</p>
-</footer>
-
-<style>
-body {
-      background-image: url("static/img/Arctic_sea.jpg");
-      background-position: center;
-      background-size: cover;
-      font-family: 'Lato', sans-serif;
-      }
-  .vertical-right {
-        min-height: 100%;
-        min-height: 100vh;
-        display: flex;
-        align-items: center;
-      }
-  .jumbotron {
-    margin-left: -200px!important;
-    background-color: #E3E8F4;
-    }
-    .button {
-      border-radius: 5px;
-      background-color: #0B6891;
-      border: none;
-      color: #E3E8F4;
-      font-size: 18px;
-      padding: 10px;
-      width: 200px;
-      transition: all 0.5s;
-      cursor: pointer;
-      margin: 5px;
-    }
-</style>
-  <script>
-
+    <canvas id="chart" width="600" height="400"></canvas>
+    <script>
+      // bar chart data
       var barData = {
         labels : [
           {% for item in labels %}
             "{{ item }}",
           {% endfor %}
         ],
-
         datasets : [{
           fillColor: "rgba(151,187,205,0.2)",
           strokeColor: "rgba(151,187,205,1)",
@@ -94,7 +61,6 @@ body {
           }
 	]
       }
-
       Chart.defaults.global.animationSteps = 50;
       Chart.defaults.global.tooltipYPadding = 16;
       Chart.defaults.global.tooltipCornerRadius = 0;
@@ -104,11 +70,11 @@ body {
       Chart.defaults.global.responsive = false;
       Chart.defaults.global.scaleLineColor = "black";
       Chart.defaults.global.scaleFontSize = 16;
-
+      // get bar chart canvas
       var mychart = document.getElementById("chart").getContext("2d");
       steps = 10
       max = {{ max }}
-
+      // draw bar chart
       var LineChartDemo = new Chart(mychart).Line(barData, {
         scaleOverride: true,
         scaleSteps: steps,
@@ -121,5 +87,32 @@ body {
         bezierCurve: false,
       });
     </script>
+  </center>
+
+<!-- Footer -->
+<footer class="footer text-center">
+    <p class="text-muted small mb-0">Copyright &copy; DataGirls</p>
+</footer>
+<style>
+body {
+      background-color: white;
+      background-position: center;
+      background-size: cover;
+      font-family: 'Lato', sans-serif;
+      }
+    .button {
+      border-radius: 5px;
+      background-color: #0B6891;
+      border: none;
+      color: #E3E8F4;
+      font-size: 18px;
+      padding: 10px;
+      width: 200px;
+      transition: all 0.5s;
+      cursor: pointer;
+      margin: 5px;
+    }
+</style>
+
 </body>
 </html>

@@ -3,7 +3,7 @@
 <html>
 <head>
     <title>chrt.</title>
-    <link rel='shortcut icon' href="static/img/logo1.png">
+    <link rel='shortcut icon' href="static/img/lg1.png">
     <link href="static/css/stylish-portfolio.min.css" rel="stylesheet">
     <link href="static/vendor/bootstrap/css/bootstrap.min.css"rel="stylesheet">
     <link href="static/page1.css"rel="stylesheet">
@@ -30,7 +30,7 @@
           <a class="js-scroll-trigger" href="#about">Who we are</a>
         </li>
         <li class="sidebar-nav-item">
-          <a class="js-scroll-trigger" href="#portfolio">Campaigns</a>
+          <a class="js-scroll-trigger" href="{{ url_for('graph') }}">Graphs</a>
         </li>
         <li class="sidebar-nav-item">
           <a class="js-scroll-trigger" href="#contact">Contact Us</a>
@@ -42,10 +42,7 @@
     <header class="masthead d-flex">
       <div class="container text-center my-auto">
         <h1 class="mb-1">chrt.</h1>
-        <h3 class="mb-5">
-          <em> charts </em>
-        </h3>
-        <a class="btn btn-primary btn-xl js-scroll-trigger" href="#about">Discover Charts</a>
+        <a class="btn btn-primary btn-xl js-scroll-trigger" href="{{ url_for('graph') }}">Discover Charts</a>
       </div>
       <div class="overlay"></div>
     </header>
@@ -58,7 +55,7 @@
             <h2> Graphs are an art for the researchers </h2>
   <p class="lead mb-5">
       We aim to increase awareness . <p>
-    <a href="About_us.html"> <button class="button"><span><em>Find out more</em></span></button> </a>
+    <a href="{{ url_for('about') }}"> <button class="button"><span><em>Find out more</em></span></button> </a>
 
       </div>
     </div>
@@ -74,8 +71,8 @@
         </div><br><br>
         <div class="row">
           <div class="col-sm-4">
-            <a href="https://www.greenpeace.org.uk/what-we-do/climate/">
-            <img  id=green src='static/img/green.png'>
+            <a href="https://www.quandl.com">
+            <img  id=green src='static/img/quandl.png'>
           </a>
             </span>
           </div>
@@ -86,8 +83,8 @@
             </span>
           </div>
           <div class="col-sm-4">
-            <a href="https://www.wwf.org.uk/where-we-work/places/arctic">
-              <img id=wwf src='static/img/WWF.png'>
+            <a href="https://www.chartjs.com=">
+              <img id=wwf src='static/img/wwf.png'>
             </a>
             </span>
           </div>
@@ -99,8 +96,8 @@
     <section class="callout">
       <div class="container text-center">
         <h2>
-      <em> Start with us</em> </h2>
-        <a id=donate class="btn btn-primary btn-xl" href="Campaign.html">Adopt a Bear</a>
+      <em> Never too late to learn from the graphs! </em> </h2>
+        <a id=donate class="btn btn-primary btn-xl" href="{{ url_for('graph') }}"> Invest in commodity </a>
       </div>
     </section>
 
@@ -113,46 +110,46 @@
         </div><br>
         <div class="row no-gutters">
           <div class="col-lg-6">
-            <a class="portfolio-item" href="Campaign.html">
+            <a class="portfolio-item" href="{{ url_for('index') }}">
               <span class="caption">
                 <span class="caption-content">
-                  <h2>Our Scientists in the Field</h2>
+                  <h2>Wood Pulp</h2>
                   <p class="mb-0"> Scientists travel to the Arctic Ocean, and the Arctic tundra to conduct field work in some of the harshest conditions on Earth. </p>
                 </span>
               </span>
-              <img class="img-fluid" src="static/img/weddel_resized.jpg" alt=""></a>
+              <img class="img-fluid" src="static/img/forest.0.jpg" alt=""></a>
           </div>
           <div class="col-lg-6">
-            <a class="portfolio-item" href="Campaign.html">
+            <a class="portfolio-item" href="{{ url_for('index') }}">
               <span class="caption">
                 <span class="caption-content">
-                  <h2>Polar bears</h2>
+                  <h2>Gold Mines</h2>
                   <p class="mb-0">Studying how polar bears fare during Arctic summers, which are lengthening due to climate change.</p>
                 </span>
               </span>
-              <img class="img-fluid" src="static/img/home_page2_resized.jpg" alt="">
+              <img class="img-fluid" src="static/img/goldmine1.jpg" alt="">
             </a>
           </div>
           <div class="col-lg-6">
-            <a class="portfolio-item" href="Campaign.html">
+            <a class="portfolio-item" href="{{ url_for('index') }}">
               <span class="caption">
                 <span class="caption-content">
-                  <h2>Arctic Ocean changes</h2>
+                  <h2>Nickel</h2>
                   <p class="mb-0">The project is looking at how environmental change affects Arctic food webs.</p>
                 </span>
               </span>
-              <img class="img-fluid" src="img/seals_resized.jpg" alt="">
+              <img class="img-fluid" src="static/img/com.jpg" alt="">
             </a>
           </div>
           <div class="col-lg-6">
-            <a class="portfolio-item" href="Campaign.html">
+            <a class="portfolio-item" href="{{ url_for('index') }}">
               <span class="caption">
                 <span class="caption-content">
-                  <h2>Arctic Ecozone</h2>
+                  <h2>Silver Mine</h2>
                   <p class="mb-0">Study how does global warming affect Arctic ecozone.</p>
                 </span>
               </span>
-              <img class="img-fluid" src="img/home_page8_resized.jpg" alt="">
+              <img class="img-fluid" src="static/img/Silvermine.png" alt="">
             </a>
           </div> <br>
         </div>
@@ -176,10 +173,10 @@
 
     <!-- Map -->
     <section id="contact" class="map">
-        <iframe width="100%" height="100%" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2482.8487511611397!2d-0.12693948480418982!3d51.51599077963642!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x48761b33383aede3%3A0xd3cb62c1857b082c!2sLSE+High+Holborn!5e0!3m2!1sen!2suk!4v1521393103064"></iframe>
+        <iframe width="100%" height="100%" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d9933.795366328994!2d-0.019459!3d51.504981!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x2936fbc8438dd3a4!2sLevel39!5e0!3m2!1sen!2sfr!4v1523962533831"></iframe>
       <br/>
       <small>
-        <a href="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2482.8487511611397!2d-0.12693948480418982!3d51.51599077963642!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x48761b33383aede3%3A0xd3cb62c1857b082c!2sLSE+High+Holborn!5e0!3m2!1sen!2suk!4v1521393103064"></a>
+        <a href="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d9933.795366328994!2d-0.019459!3d51.504981!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x2936fbc8438dd3a4!2sLevel39!5e0!3m2!1sen!2sfr!4v1523962533831"></a>
       </small>
     </section>
 
