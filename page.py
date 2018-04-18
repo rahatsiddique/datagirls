@@ -29,8 +29,8 @@ def commodities():
     commodities = ["Oil" , "Steel", "Gold"]
     return render_template("commodities.html", commodities=commodities)
 
-@app.route ('/graph')
-def graph():
+@app.route ('/gold')
+def gold():
     # data = quandl.get('WGEC/WLD_GOLD')
     # data1 = quandl.get('WGEC/WLD_WOODPULP')
     # data2 = quandl.get('WGEC/WLD_SILVER')
@@ -41,15 +41,56 @@ def graph():
     data3 = get_commod_data( 'WGEC/WLD_NICKEL' )
 
     dataDict = data.to_dict( 'split' )
+    dataList = dataDict["data"]
+    timestampsList = dataDict["index"]
+    dateList = [pd.to_datetime( i ).strftime( '%Y' ) for i in timestampsList]
+    print dataList
+    print dateList
+    return render_template( "graph.html", labels=dateList, values=dataList, title='Gold price', paginate=True, min=20,max=1700 )
 
+
+@app.route( '/silver' )
+def silver():
+
+    data = get_commod_data( 'WGEC/WLD_SILVER' )
+
+
+    dataDict = data.to_dict( 'split' )
+    dataList = dataDict["data"]
+    timestampsList = dataDict["index"]
+    dateList = [pd.to_datetime( i ).strftime( '%Y' ) for i in timestampsList]
+    print dataList
+    print dateList
+    return render_template( "graph.html", labels=dateList, values=dataList, title='Silver price', paginate=True,min=0, max=40 )
+
+@app.route( '/nickel' )
+def nickel():
+
+    data = get_commod_data( 'WGEC/WLD_NICKEL' )
+
+    dataDict = data.to_dict( 'split' )
     dataList = dataDict["data"]
     timestampsList = dataDict["index"]
     dateList = [pd.to_datetime( i ).strftime( '%Y' ) for i in timestampsList]
     print dataList
     print dateList
 
+    return render_template( "graph.html", labels=dateList, values=dataList, title='Nickel price', paginate=True,  min=1500, max=40000 )
+
+
+@app.route( '/woodpulp' )
+def woodpulp():
+
+    data = get_commod_data( 'WGEC/WLD_WOODPULP' )
+
+    dataDict = data.to_dict( 'split' )
+    dataList = dataDict["data"]
+    timestampsList = dataDict["index"]
+    dateList = [pd.to_datetime( i ).strftime( '%Y' ) for i in timestampsList]
+    print dataList
+    print dateList
     #col_2 = range(len(col_1))
-    return render_template( "graph.html",labels=dateList, values=dataList, title='Gold price', paginate=True,min=20, max=1700)
+    return render_template( "graph.html",labels=dateList, values=dataList, title='Woodpulp price', paginate=True,min=20, max=1700)
 
 if __name__== "__main__":
     app.run(debug=True)
